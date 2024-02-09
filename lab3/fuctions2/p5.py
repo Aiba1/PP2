@@ -86,4 +86,4 @@ def good_movie(category):
             i+=1
     return "the avg imdb score of ", category , "is " ,a/i
 print(good_movie(category))
-good luck
+
