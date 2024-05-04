@@ -6,21 +6,21 @@ pygame.init()
 pygame.font.init()
 clock = pygame.time.Clock()
 
-# SONGS-------------------------------------------------
-path = "/Users/aiymtursynbekova/Desktop/pp2/musics"
-path1 = "/Users/aiymtursynbekova/Desktop/pp2/pictures"
-pygame.mixer.music.load(os.path.join(path, "Past Lives.mp3"))
-pygame.mixer.music.load(os.path.join(path, "OAO.mp3"))
-pygame.mixer.music.load(os.path.join(path, "Perfect.mp3"))
-pygame.mixer.music.load(os.path.join(path, "Runaway.mp3"))
-pygame.mixer.music.load(os.path.join(path, "CD.mp3"))
+
+
+pl = r"C:\Users\Aibar\Desktop\pp2\musics\Past Lives.mp3"
+oa = r"C:\Users\Aibar\Desktop\pp2\musics\OAO.mp3"
+pe = r"C:\Users\Aibar\Desktop\pp2\musics\Perfect.mp3"
+ru = r"C:\Users\Aibar\Desktop\pp2\musics\Runaway.mp3"
+cd = r"C:\Users\Aibar\Desktop\pp2\musics\CD.mp3"
+
 
 # PICTURES-------------------------------------------------
-pimg = pygame.image.load((os.path.join(path1, "p.jpeg")))
-plimg = pygame.image.load((os.path.join(path1, "pl.jpeg")))
-oaoimg = pygame.image.load((os.path.join(path1, "oao.jpeg")))
-cdimg = pygame.image.load((os.path.join(path1, "cd.png")))
-rimg = pygame.image.load((os.path.join(path1, "r.jpeg")))
+pimg = pygame.image.load(r"C:\Users\Aibar\Desktop\pp2\pictures\sheeran.jpg")
+plimg = pygame.image.load(r"C:\Users\Aibar\Desktop\pp2\pictures\photo_5242467503207208518_m.jpg")
+oaoimg = pygame.image.load(r"C:\Users\Aibar\Desktop\pp2\pictures\adele.jpg")
+cdimg = pygame.image.load(r"C:\Users\Aibar\Desktop\pp2\pictures\california.jpg")
+rimg = pygame.image.load(r"C:\Users\Aibar\Desktop\pp2\pictures\sia.jpg")
 
 # SCREEN
 screen = pygame.display.set_mode((500, 500))
@@ -31,7 +31,7 @@ song_end = pygame.USEREVENT + 1
 pygame.mixer.music.set_endevent(song_end)
 
 # -------------------------------------------------
-songs = ["Past Lives.mp3", "OAO.mp3", "Perfect.mp3", "Runaway.mp3", "CD.mp3"]
+songs = [pl, oa, pe, ru, cd]
 pictures = [plimg, oaoimg, pimg, rimg, cdimg]
 
 # Define song names corresponding to the pictures
@@ -51,7 +51,7 @@ pause = True
 my_font = pygame.font.SysFont('Comic Sans MS', 30)
 
 # firstsong-------------------------------------------
-pygame.mixer.music.load(os.path.join(path, cs))
+pygame.mixer.music.load(cs)
 pygame.mixer.music.play()
 
 # LOOP-------------------------------------------------
@@ -73,7 +73,7 @@ while not done:
         elif event.type == song_end:
             previous_song = cs
             cs = random_song()
-            pygame.mixer.music.load(os.path.join(path, cs))
+            pygame.mixer.music.load(cs)
             pygame.mixer.music.play()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -86,11 +86,11 @@ while not done:
             elif event.key == pygame.K_RIGHT:
                 previous_song = cs
                 cs = random_song()
-                pygame.mixer.music.load(os.path.join(path, cs))
+                pygame.mixer.music.load(cs)
                 pygame.mixer.music.play()
             elif event.key == pygame.K_LEFT:
                 cs = previous_song
-                pygame.mixer.music.load(os.path.join(path, cs))
+                pygame.mixer.music.load(cs)
                 pygame.mixer.music.play()
                 
     pygame.display.flip()
